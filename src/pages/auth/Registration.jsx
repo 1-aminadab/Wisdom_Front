@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./style.css";
+import "./Registration.css";
 import ParentRegistrationForm from '../../components/registration_forms/parentSignupForm';
 import TeacherRegistrationForm from '../../components/registration_forms/teacherSignupForm';
 import SignupIntry from './SignupIntry'
