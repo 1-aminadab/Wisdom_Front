@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaGooglePlusG, FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
-import "./Style.css"
+import "./Registration"
 const AuthForm = () => {
   const [isSignUp, setIsSignUp] = useState(true);
 
