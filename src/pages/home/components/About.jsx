@@ -22,7 +22,7 @@ function About() {
             </div>
             <img src={Shape1} width="360" height="420" loading="lazy" alt="" className="shape about-shape-1" />
             <img src={Shape2} width="371" height="220" loading="lazy" alt="" className="shape about-shape-2" />
-            <img src={Shape3} width="722" height="528" loading="lazy" alt="" className="shape about-shape-3" />
+            {/* <img src={Shape3} width="722" height="528" loading="lazy" alt="" className="shape about-shape-3" /> */}
           </figure>
           <div className="about-content">
             <p className="section-subtitle">About Us</p>

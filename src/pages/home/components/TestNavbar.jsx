@@ -81,7 +81,7 @@ function DrawerAppBar(props) {
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
+            <ListItemButton sx={{ textAlign: "center", fontFamily:"fantasy",fontStyle:"italic",fontWeight:"500"}}>
               <ListItemText primary={item} />
             </ListItemButton>
           </ListItem>
@@ -153,10 +153,11 @@ function DrawerAppBar(props) {
               style={{ borderColor:"red" }}
               onChange={handleChange}
               aria-label="disabled tabs example"
+              
             >
               {navItems.map((item) => (
                 <LinkTab
-                  sx={{ color: "#555", fontSize: "14px"}}
+                  sx={{ color: "#555", fontSize: "13px"}}
                   key={item}
                   label={item}
                 />
@@ -227,7 +228,7 @@ function DrawerAppBar(props) {
               <div
                 style={{ display: "flex", alignItems: "center", gap: "10px" }}
               >
-                <span onClick={() => navigate("/login")}>Login</span>
+                <span onClick={() => navigate("/login")} style={{fontSize:"16px", color:"gray", textDecoration:"underline"}}>Login</span>
                 <a href="#" className="btn has-before">
                   <span className="span" onClick={() => navigate("/signup")}>
                     Sign Up

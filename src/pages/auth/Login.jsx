@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { FaGooglePlusG, FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
-import "./Registration"
+import "./Registration.css"
+import LoginLogo from "../../assets/images/loginlogo.jpg"
+import LoginForm from '../../components/LoginForm';
 const AuthForm = () => {
   const [isSignUp, setIsSignUp] = useState(true);
 
@@ -9,48 +11,22 @@ const AuthForm = () => {
   };
 
   return (
-    <body>
-      
-    
-    <div className="container" id="container">
-      <div className={`form-container ${isSignUp ? 'sign-up' : 'sign-in'}`}>
-        <form>
-          <h1>{isSignUp ? 'Create Account' : 'Sign In'}</h1>
-          <div className="social-icons">
-            <a href="#" className="icon"><FaGooglePlusG /></a>
-            <a href="#" className="icon"><FaFacebookF /></a>
-            <a href="#" className="icon"><FaGithub /></a>
-            <a href="#" className="icon"><FaLinkedinIn /></a>
-          </div>
-          {isSignUp ? <span>or use your email for registration</span> : <span>or use your email and password</span>}
-          {isSignUp && <input type="text" placeholder="Name" />}
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          {isSignUp && <button>Sign Up</button>}
-          {!isSignUp && <button>Sign In</button>}
-        </form>
+   
+    <div  style={{height:"100vh", width:"100vw", display:"flex", alignItems:"center", justifyContent:"center"}} >
+      <div style={{width:"60%", display:"flex",alignItems:"center",justifyItems:"center"}} >
+         <LoginForm />
       </div>
-      <div className="toggle-container">
-        <div className="toggle">
-          <div className={`toggle-panel ${isSignUp ? 'toggle-left' : 'toggle-right'}`}>
-            {isSignUp ? (
-              <>
-                <h1>Welcome Back!</h1>
-                <p>Enter your personal details to use all site features</p>
-                <button className="hidden" onClick={toggleForm}>Sign In</button>
-              </>
-            ) : (
-              <>
-                <h1>Hello, Friend!</h1>
-                <p>Register with your personal details to use all site features</p>
-                <button className="hidden" onClick={toggleForm}>Sign Up</button>
-              </>
-            )}
-          </div>
+     
+      <div className='desc-par' style={{width:"100%",height:"100%"}}>
+        <div className='desk-text'>
+        <h1>there i am</h1></div>
+        <div className="desc-img" style={{width:"100%",height:"100%"}}>
+          <img src={LoginLogo} alt="" />
         </div>
+       
       </div>
     </div>
-    </body>
+          
   );
 };
 

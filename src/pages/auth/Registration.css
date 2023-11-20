@@ -84,3 +84,15 @@ justify-content: space-between;
 }
 
 /* REAGISTRAITON FORM */
+
+.desc-par{
+position: relative;
+}
+.desc-img {
+    filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.164);
+    width: 100%;
+    height: 100%;
+   
+  
+}
