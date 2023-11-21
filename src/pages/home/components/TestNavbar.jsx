@@ -34,7 +34,13 @@ import Tabs from "@mui/material/Tabs";
 import LinkTab from "@mui/material/Tab";
 
 const drawerWidth = 240;
-const navItems = ["Home", "About", "Contact"];
+const navItems = [
+  { link: "#home", title: "Home" },
+  { link: "#service", title: "Services" },
+  { link: "#blog", title: "News" },
+  { link: "#about", title: "About" },
+  { link: "#contact", title: "Contact" },
+];
 
 function DrawerAppBar(props) {
   const navigate = useNavigate();
@@ -81,8 +87,8 @@ function DrawerAppBar(props) {
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center", fontFamily:"fantasy",fontStyle:"italic",fontWeight:"500"}}>
-              <ListItemText primary={item} />
+            <ListItemButton href={item.link} sx={{ textAlign: "center", fontFamily:"fantasy",fontStyle:"italic",fontWeight:"500"}}>
+              <ListItemText primary={item.title} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -157,9 +163,11 @@ function DrawerAppBar(props) {
             >
               {navItems.map((item) => (
                 <LinkTab
+                href={item.link}
                   sx={{ color: "#555", fontSize: "13px"}}
                   key={item}
-                  label={item}
+                  label={item.title}
+
                 />
               ))}
             </Tabs>
@@ -230,7 +238,7 @@ function DrawerAppBar(props) {
               >
                 <span onClick={() => navigate("/login")} style={{fontSize:"16px", color:"gray", textDecoration:"underline"}}>Login</span>
                 <a href="#" className="btn has-before">
-                  <span className="span" onClick={() => navigate("/signup")}>
+                  <span style={{fontSize:"15px"}}  className="span" onClick={() => navigate("/signup")}>
                     Sign Up
                   </span>
                   <ion-icon

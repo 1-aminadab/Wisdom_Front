@@ -12,6 +12,7 @@ export const registerUser = async (userData) => {
 export const login = async (userData) => {
     
     try {
+        console.log("yes it intered login");
         const response = await axios.post(`${BASE_URL}/auth/login`, userData);
         localStorage.setItem("Access_Token", response.data.token)
         return response.data;

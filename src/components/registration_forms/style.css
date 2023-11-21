@@ -31,7 +31,7 @@ color: var(--kappel);
     flex-direction: column;
     gap: 20px;
 }
-.signup-form >  form{
+.signup-form >  .form{
     display: flex;
     padding: 20px;
     flex-direction: column;
@@ -47,14 +47,15 @@ color: var(--kappel);
 hr{
     width: 80%;
 }
-.signup-form >  form h1{
+.signup-form >  .form h1{
     color: var(--kappel);
     font-size: 30px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 600;
+    text-align: center;
 
 }
-.signup-form >  form p{
+.signup-form >  .form p{
     text-align: center;
     font-size: 13px;
 }
@@ -64,21 +65,21 @@ hr{
     grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
-.signup-form >  form > div{
+.signup-form >  .form > div{
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
-.signup-form >  form > div > div > input{
+.signup-form >  .form > div > div > input{
     width: 100%;
 }
-.signup-form >  form > div {
+.signup-form >  .form > div {
     display: flex;
     justify-content: space-around;
     gap: 10px;
 }
-.signup-form >  form > div input, select, textarea{
+.signup-form >  .form > div input, select, textarea{
     width: 90%;
     padding: 4px 10px;
     outline: none;
@@ -89,16 +90,16 @@ hr{
     border-radius: var(--radius-5);
     transition: all 500ms;
 }
-.signup-form >  form > div input:hover, select:hover, textarea:hover{
+.signup-form >  .form > div input:hover, select:hover, textarea:hover{
     border-color: rgb(126, 126, 126);
     
     transition: all 300ms;
 }
-.signup-form >  form > div input::placeholder{
+.signup-form >  .form > div input::placeholder{
     color: rgb(107, 107, 107);
     font-weight: 400;
 }
-.signup-form >  form button{
+.signup-form >  .form button{
     width: 70%;
     padding:5px 10px;
     background-color: var(--kappel);
@@ -137,4 +138,23 @@ input[type="checkbox"] + label{
 .input-list{
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+.form-box{
+    flex-direction: column;
+   
+}
+@media screen and (max-width:600px) {
+  
+    .signup-inputs{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media screen and (max-width:1000px) {
+    .signup-form >  .form{
+        width:90% ;
+    }
+    
+   
 }

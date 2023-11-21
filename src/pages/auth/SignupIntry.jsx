@@ -27,6 +27,10 @@ function SignupIntry({getType}) {
 
   return (
     <div className="signup-entry">
+      <div className="signup-entry-header">
+        <h1 >Wisdom</h1>
+        <h2>Back</h2>
+      </div>
       <div className="apply-container">
       <h1>Join Our Community</h1>
       <p>Discover a world of learning and connections. Ch Let us know if you're a parent or a teacher to tailor your experience.</p>
