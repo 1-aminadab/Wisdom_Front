@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
+import CheckAlerts from "../alert/CheckAlert";
 // material ui
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -14,7 +16,7 @@ import { useTheme } from "@mui/material/styles";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from '@mui/material/FormControl';
+import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 const ITEM_HEIGHT = 48;
@@ -29,28 +31,21 @@ const MenuProps = {
 };
 
 const workDays = [
-  "Oliver Hansen",
-  "Van Henry",
-  "April Tucker",
-  "Ralph Hubbard",
-  "Omar Alexander",
-  "Carlos Abbott",
-  "Miriam Wagner",
-  "Bradley Wilkerson",
-  "Virginia Andrews",
-  "Kelly Snyder",
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
 ];
-const grade = [
-  "Oliver Hansen",
-  "Van Henry",
-  "April Tucker",
-  "Ralph Hubbard",
-  "Omar Alexander",
-  "Carlos Abbott",
-  "Miriam Wagner",
-  "Bradley Wilkerson",
-  "Virginia Andrews",
-  "Kelly Snyder",
+const grade = ["KG - 4", "5 - 6", "7 - 8", "9 - 10", "11 - 12", "University"];
+const educationLevel = [
+  "HighSchool",
+  "Undergratuate",
+  "Degree",
+  "Masters",
+  "Phd",
 ];
 function getStyles(name, personName, theme) {
   return {
@@ -62,19 +57,7 @@ function getStyles(name, personName, theme) {
 }
 
 const TeacherRegistrationForm = ({ userType }) => {
-  //
-  const theme = useTheme();
-  const [personName, setPersonName] = React.useState([]);
-  console.log(personName);
-  const handleSelect = (event) => {
- const {name, value }=event.target;
-    console.log(name, value);
-    // setPersonName(
-    //   // On autofill we get a stringified value.
-    //   typeof value === "string" ? value.split(",") : value
-    // );
-  };
-  //
+  const navigate = useNavigate()
   const [user, setUser] = React.useState({
     firstName: "",
     lastName: "",
@@ -86,15 +69,22 @@ const TeacherRegistrationForm = ({ userType }) => {
     experience: "",
     workingDays: [],
     selectedGrade: [],
-    fileLocation: "",
     password: "",
     confirmPassword: "",
   });
-  const [isChecked, setIsChecked] = useState(false);
-  console.log(isChecked);
+  const [isChecked, setIsChecked] = useState(false); // Term and Policy
+  const [userRole, setUserRole] = useState(userType)
+
+  const changeRole = (role)=>{
+    return setUserRole(role)
+  }
+  const theme = useTheme();
+  
+  const [personName, setPersonName] = React.useState([]);
+  
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
-  };
+  }; // Switch policy check box
   // Functions
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -103,11 +93,50 @@ const TeacherRegistrationForm = ({ userType }) => {
       ...prevUser,
       [name]: value,
     }));
+   
   };
+  // Check validation
 
+  const checkEmptyField = ()=>{
+    
+     for (const key in user) {
+      if (user.hasOwnProperty(key) && !user[key]) {
+        return false;
+      }
+    }
+    return true;
+  }
+  
+  const checkValidation = ()=>{
+    if (!isChecked) return false;
+    checkEmptyField()
+   
+  }
+ useEffect(()=>{
+  console.log( checkValidation())
+     
+    },[user])
+
+    const [alertComponent, setAlertComponent] =useState ({
+      alertType : "",
+      title:"",
+      message:""
+    })
+    const [isAlert, setIsAlert] = useState(false)
+    const alertFunction = (alertType, title, message)=>{
+      setIsAlert(true)
+       return setAlertComponent({alertType:alertType, title:title, message:message})
+    }
+    useEffect(()=>{
+      setTimeout(() => {
+        setIsAlert(false)
+      }, 10000);
+    },[alertFunction])
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    if(checkEmptyField() === false) return alertFunction("error","Error", "Pleace Fill all Fields")
+    if(user.password !== user.confirmPassword) return alertFunction("error","Error", "Password dont match")
+    if(!isChecked) return alertFunction("warning", "Privacy","You must agree before proceed")
     // Prepare data based on userType
     const userData = {
       firstName: user.firstName,
@@ -131,25 +160,31 @@ const TeacherRegistrationForm = ({ userType }) => {
       }),
     };
 
-    try {
-      // Send the data to the backend
-      const response = await axios.post("/api/register", userData);
+  //   try {
+  //     // Send the data to the backend
+  //     const response = await axios.post("/api/register", userData);
 
-      // Handle the response as needed
-      console.log("Registration successful:", response.data);
-    } catch (error) {
-      // Handle errors
-      console.error("Registration failed:", error.message);
-    }
+  //     // Handle the response as needed
+  //     console.log("Registration successful:", response.data);
+  //   } catch (error) {
+  //     // Handle errors
+  //     console.error("Registration failed:", error.message);
+  //   }
   };
+ 
 
   return (
     <div className="signup-form">
       <div className="signup-header">
-        <h1>Wisdom</h1>
-        <div>
+        <h1 onClick={()=> navigate("/")}>Wisdom</h1>
+        <div style={{fontSize:"14px"}}>
           <h2>
-            Looking for Tutors? <span> Apply as Parent</span>
+            Looking for {userRole === "parent" ? "Students" : "Tutors"}? <span 
+            style={{cursor:"pointer"}}
+            onClick={()=>{
+             if (userRole === "parent") return changeRole("teacher") 
+             if (userRole === "teacher") return changeRole("parent") 
+            }}> Apply as {userRole === "parent" ? "Teacher" : "Parent"}</span>
           </h2>
         </div>
       </div>
@@ -172,7 +207,9 @@ const TeacherRegistrationForm = ({ userType }) => {
             molestiae consequuntur fugiat odit optio atque dicta reprehenderit
             nihil doloremque voluptates?
           </p>
+          <br />
           <hr />
+          <br />
           <div className="signup-inputs">
             <TextField
               label="First Name"
@@ -201,17 +238,7 @@ const TeacherRegistrationForm = ({ userType }) => {
               name="phoneNumber"
               value={user.phoneNumber}
               onChange={handleChange}
-            />
-            {/* ... other text fields */}
-
-            <TextField
-              label="Child Number"
-              type="search"
-              name="childNumber"
-              value={user.childNumber}
-              onChange={handleChange}
-            />
-
+            />   
             <TextField
               label="Location"
               type="search"
@@ -219,16 +246,49 @@ const TeacherRegistrationForm = ({ userType }) => {
               value={user.location}
               onChange={handleChange}
             />
-            <TextField
+            {/* ... Parent Field */}
+              {
+                userRole === "parent" &&  
+              <TextField
+              label="Child Number"
+              type="search"
+              name="childNumber"
+              value={user.childNumber}
+              onChange={handleChange}
+            />
+              }
+          
+            {/* Teacher Field */}
+            {userRole === "teacher" && <TextField
               label="Experience"
               type="search"
               name="experience"
               value={user.experience}
               onChange={handleChange}
-            />
-            {/* Multiple select  */}
-            <FormControl sx={{ m: 1, width: 230 }}>
-              <InputLabel id="demo-multiple-name-label">Working Days</InputLabel>
+            />}
+            {userRole === "teacher" &&   <FormControl sx={{ m: 1, width: 230 }}>
+              <InputLabel id="demo-simple-select-label">Education Level</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                name="educationLevel"
+                value={user.educationLevel}
+                label="Education Level"
+                onChange={handleChange}
+              >
+                {
+                  educationLevel.map((level, index)=>{
+                     return <MenuItem key={index} value={level.toLocaleLowerCase()}>{level}</MenuItem>
+                  })
+                }
+               
+                
+              </Select>
+            </FormControl>}
+            {userRole === "teacher" && <FormControl sx={{ m: 1, width: 230 }}>
+              <InputLabel id="demo-multiple-name-label">
+                Working Days
+              </InputLabel>
               <Select
                 labelId="demo-multiple-name-label"
                 id="demo-multiple-name"
@@ -249,9 +309,11 @@ const TeacherRegistrationForm = ({ userType }) => {
                   </MenuItem>
                 ))}
               </Select>
-            </FormControl>
-            <FormControl sx={{ m: 1, width: 230 }}>
-              <InputLabel id="demo-multiple-name-label">Select Grade</InputLabel>
+            </FormControl> }
+            {userRole === "teacher" && <FormControl sx={{ m: 1, width: 230 }}>
+              <InputLabel id="demo-multiple-name-label">
+                Select Grade
+              </InputLabel>
               <Select
                 labelId="demo-multiple-name-label"
                 id="demo-multiple-name"
@@ -272,8 +334,38 @@ const TeacherRegistrationForm = ({ userType }) => {
                   </MenuItem>
                 ))}
               </Select>
-            </FormControl>
-            {/*  */}
+            </FormControl>}
+            {userRole === "teacher" &&  <div style={{ position: "relative" }}>
+              <label
+                style={{
+                  top: "-8px",
+                  left: "4px",
+                  padding: "2px",
+                  backgroundColor: "white",
+                  fontSize: "10px",
+                  position: "absolute",
+                }}
+                htmlFor="birth-date"
+              >
+                Birth date(GC)
+              </label>
+              <input
+                style={{
+                  width: "83%",
+                  padding: "13px",
+                  border: "1px solid #ddd",
+                  borderRadius: "5px",
+                }}
+                type="date"
+                onChange={handleChange}
+                name="birthDate"
+                value={user.birthDate}
+                id="birthDate"
+              />
+            </div>}
+            
+             {/* Common field */}
+           
             <TextField
               id="outlined-password-input"
               label="Password"
@@ -292,37 +384,8 @@ const TeacherRegistrationForm = ({ userType }) => {
               name="confirmPassword"
               value={user.confirmPassword}
             />
-            <div style={{ position: "relative" }}>
-              <label
-                style={{
-                  top: "-8px",
-                  left: "4px",
-                  padding: "2px",
-                  backgroundColor: "white",
-                  fontSize: "10px",
-                  position: "absolute",
-                }}
-                htmlFor="birth-date"
-              >
-                Birth date
-              </label>
-              <input
-                style={{
-                  width: "83%",
-                  padding: "13px",
-                  border: "1px solid #ddd",
-                  borderRadius: "5px",
-                }}
-                type="date"
-                onChange={handleChange}
-                name="birthDate"
-                value={user.birthDate}
-                id="birthDate"
-              />
-            </div>
-            <div></div>
-            <div></div>
-            <div></div>
+
+            
           </div>
 
           <Checkbox
@@ -340,22 +403,30 @@ const TeacherRegistrationForm = ({ userType }) => {
               Read our <Link href="#link">terms and conditions</Link>.
             </Typography>
           </FormHelperText>
-        </Box>
-        <div
+      
+           <div
           style={{
             padding: "10px",
             flexDirection: "column",
             display: "flex",
+            alignItems:"center",
             gap: "10px",
+            width:"100%"
           }}
+
+
         >
-          <button type="submit">Register Teacher</button>
+          
+         {isAlert && <CheckAlerts severity={alertComponent.alertType} title={alertComponent.title} message={alertComponent.message}/>}
+            <button type="submit" style={checkValidation() === false ? {backgroundColor:"gray", cursor:"none"} : {}}>Register {userRole === "parent"? "Parent"  :"Teacher"  } </button>
           <div>
-            <h2>
+            <h2 style={{fontSize:'14px'}}>
               Already have an Account? <span>Login</span>{" "}
             </h2>
           </div>
         </div>
+        </Box>
+       
       </div>
     </div>
   );

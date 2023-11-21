@@ -9,8 +9,8 @@ function Registration() {
         setUserType(type)
    }
     if (userType ===  null) return <SignupIntry getType={setType}/>
-    if(userType === "teacher") return <TeacherRegistrationForm />
-    if(userType === "parent") return <ParentRegistrationForm />
+    return <TeacherRegistrationForm userType = {userType} />
+   // if(userType === "parent") return <ParentRegistrationForm />
 }
 
 export default Registration

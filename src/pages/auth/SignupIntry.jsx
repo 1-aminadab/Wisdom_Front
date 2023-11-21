@@ -4,7 +4,7 @@ import { FaBullseye } from "react-icons/fa6";
 import { MdPanoramaFishEye } from "react-icons/md";
 import Parents from "./assets/images/parents.png";
 import Teacher from "./assets/images/teacher.png";
-
+import CheckAlerts from "../../components/alert/CheckAlert";
 function SignupIntry({getType}) {
   const [user, setUser] = useState(null);
   const [primaryColor, setPrimaryColor] = useState("");
@@ -27,6 +27,7 @@ function SignupIntry({getType}) {
 
   return (
     <div className="signup-entry">
+
       <div className="signup-entry-header">
         <h1 >Wisdom</h1>
         <h2>Back</h2>

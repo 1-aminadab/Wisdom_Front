@@ -46,6 +46,8 @@ color: var(--kappel);
 }
 hr{
     width: 80%;
+    margin: 10px;
+    background-color: gray;
 }
 .signup-form >  .form h1{
     color: var(--kappel);
