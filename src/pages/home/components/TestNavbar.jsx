@@ -128,11 +128,11 @@ function DrawerAppBar(props) {
           >
             <MenuIcon fontSize="large" />
           </IconButton>
-     
+         
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 0, display: { xs: "none", sm: "block" } }}
+            sx={{ flexGrow: 0, display: { xs: "block", sm: "block" } }}
           >
             <div
               style={{
@@ -150,7 +150,12 @@ function DrawerAppBar(props) {
                 src={Logo}
                 alt=""
               />
-              <h1>Wisdom</h1>
+              <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 0, display: { xs: "none", sm: "block" } }}
+          >
+              <h1 style={{fontFamily:"cursive", fontSize:'20px', fontWeight:"600"}}>Wisdom</h1></Typography>
             </div>
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>

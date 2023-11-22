@@ -8,7 +8,7 @@ const LoginForm = () => {
   const [error, setError] = useState(true);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    username: "",
+    phoneNumber: "",
     password: "",
   });
 
@@ -78,11 +78,11 @@ console.log(formData);
         autoComplete="off"
       >
         <TextField
-          label="Email"
+          label="phoneNumber"
           type="search"
           id="username"
-          name="username"
-          value={formData.username}
+          name="phoneNumber"
+          value={formData.phoneNumber}
           onChange={handleChange}
         />
 

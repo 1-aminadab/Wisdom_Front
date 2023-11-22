@@ -8,8 +8,8 @@ export default function CheckAlerts({severity, title, message}) {
   return (
     <Stack sx={{ width: '100%' }} spacing={2}>
       <Alert severity={severity}>
-        <AlertTitle>{title}</AlertTitle>
-       {message} — <strong>check it out!</strong>
+        <AlertTitle style={{fontSize:"15px"}}>{title}</AlertTitle>
+       <strong style={{fontSize:"14px", fontWeight:"600"}}>{message}</strong>
       </Alert>
       
     </Stack>

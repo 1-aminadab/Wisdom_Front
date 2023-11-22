@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 import CheckAlerts from "../alert/CheckAlert";
+import axios from "axios"
 // material ui
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -18,7 +19,8 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-
+import CustomizedSnackbars from "../alert/SnackBar";
+const BASE_URL = "http://localhost:3001"
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -39,7 +41,7 @@ const workDays = [
   "Friday",
   "Saturday",
 ];
-const grade = ["KG - 4", "5 - 6", "7 - 8", "9 - 10", "11 - 12", "University"];
+const grade = ["KG,1,2,3,4", "5,6", "7,8", "9,10", "11,12", "University"];
 const educationLevel = [
   "HighSchool",
   "Undergratuate",
@@ -63,15 +65,18 @@ const TeacherRegistrationForm = ({ userType }) => {
     lastName: "",
     email: "",
     phoneNumber: "",
+    gender:"",
     childNumber: "",
     birthDate: "",
-    location: "",
+    address: "",
     experience: "",
     workingDays: [],
     selectedGrade: [],
     password: "",
     confirmPassword: "",
   });
+
+  const [loading, setLoading] = useState(false)
   const [isChecked, setIsChecked] = useState(false); // Term and Policy
   const [userRole, setUserRole] = useState(userType)
 
@@ -112,6 +117,7 @@ const TeacherRegistrationForm = ({ userType }) => {
     checkEmptyField()
    
   }
+
  useEffect(()=>{
   console.log( checkValidation())
      
@@ -134,42 +140,54 @@ const TeacherRegistrationForm = ({ userType }) => {
     },[alertFunction])
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if(checkEmptyField() === false) return alertFunction("error","Error", "Pleace Fill all Fields")
-    if(user.password !== user.confirmPassword) return alertFunction("error","Error", "Password dont match")
+    //if(checkEmptyField() === false) return alertFunction("error","Error", "Pleace Fill all Fields")
+   
     if(!isChecked) return alertFunction("warning", "Privacy","You must agree before proceed")
     // Prepare data based on userType
     const userData = {
       firstName: user.firstName,
       lastName: user.lastName,
-      email: user.email,
       phoneNumber: user.phoneNumber,
-      // ... other common fields
+      address: user.address,
+      gender:user.gender,
+      password: user.password,
+      confirmPassword:user.confirmPassword,
 
       // Fields specific to teachers
-      ...(userType === "teacher" && {
-        location: user.location,
+      ...(userRole === "teacher" && {
+        birthDate:user.birthDate,
+        email: user.email,
         experience: user.experience,
-        workingDays: user.workingDays,
-        selectedGrade: user.selectedGrade,
-        fileLocation: user.fileLocation,
+        workingDays: user.workingDays.join(','),
+        educationLevel:user.educationLevel,
+        selectedGrade: user.selectedGrade.join(','),
+        userType:"teacher",
+       
+        
       }),
 
       // Fields specific to parents
-      ...(userType === "parent" && {
+      ...(userRole === "parent" && {
         childNumber: user.childNumber,
+        userType:"parent"
       }),
     };
 
-  //   try {
-  //     // Send the data to the backend
-  //     const response = await axios.post("/api/register", userData);
+    try {
+      console.log("Entered");
+      // Send the data to the backend
+      const response = await axios.post(`${BASE_URL}/auth/register`, userData);
+      alertFunction("success", response.data.title,response.data.message)
+      // Handle the response as needed
+      console.log("Registration successful:", response.data);
 
-  //     // Handle the response as needed
-  //     console.log("Registration successful:", response.data);
-  //   } catch (error) {
-  //     // Handle errors
-  //     console.error("Registration failed:", error.message);
-  //   }
+      navigate('/login')
+    } catch (error) {
+     
+      const errorMessage = error.response.data
+      alertFunction("error", errorMessage.title,errorMessage.message)
+      console.error(error);
+    }
   };
  
 
@@ -225,13 +243,7 @@ const TeacherRegistrationForm = ({ userType }) => {
               value={user.lastName}
               onChange={handleChange}
             />
-            <TextField
-              label="Email"
-              type="search"
-              name="email"
-              value={user.email}
-              onChange={handleChange}
-            />
+            
             <TextField
               label="Phone number"
               type="search"
@@ -239,13 +251,38 @@ const TeacherRegistrationForm = ({ userType }) => {
               value={user.phoneNumber}
               onChange={handleChange}
             />   
-            <TextField
-              label="Location"
+            {
+              userRole === "teacher" && <TextField
+              label="Email"
               type="search"
-              name="location"
-              value={user.location}
+              name="email"
+              value={user.email}
               onChange={handleChange}
             />
+            }
+            <TextField
+              label="address"
+              type="search"
+              name="address"
+              value={user.address}
+              onChange={handleChange}
+            />
+            <FormControl sx={{ m: 1, width: 230 }}>
+              <InputLabel id="demo-simple-select-label">Gender</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                name="gender"
+                value={user.gender}
+                label="Gender"
+                onChange={handleChange}
+              >
+                <MenuItem value="male">male</MenuItem>
+                <MenuItem value="female">Female</MenuItem>
+                
+               
+              </Select>
+            </FormControl>
             {/* ... Parent Field */}
               {
                 userRole === "parent" &&  
@@ -260,6 +297,7 @@ const TeacherRegistrationForm = ({ userType }) => {
           
             {/* Teacher Field */}
             {userRole === "teacher" && <TextField
+            placeholder="number of Year"
               label="Experience"
               type="search"
               name="experience"

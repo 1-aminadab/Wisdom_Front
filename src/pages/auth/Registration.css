@@ -109,8 +109,11 @@ position: relative;
 @media screen and (max-width:900px) {
     .signup-entry > .apply-container{
         width:90%;
-        background-color: red;
+       
     } 
+    label{
+        font-size: 20px;
+    }
     .select-btn{
         flex-direction: column;
         align-items: center;
