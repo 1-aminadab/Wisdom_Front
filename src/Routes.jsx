@@ -15,7 +15,7 @@ import SignupIntry from './pages/auth/SignupIntry';
 const Router = () => {
   const navigate = useNavigate();
   const { isAuthenticated, user } = useAuth();
-
+  console.log(user, isAuthenticated);
   const checkUserRole = () => {
     if (user) {
       return user.user_type;

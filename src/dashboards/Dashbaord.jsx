@@ -10,7 +10,11 @@ const Dashboard = () => {
 
   return (
     <div className=" bg-gray-100">
+      
      <Sidebar />
+     <div>
+
+     </div>
     </div>
   );
 };

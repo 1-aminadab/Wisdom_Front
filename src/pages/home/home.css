@@ -182,7 +182,7 @@ body {
   transition: var(--transition-2);
 }
 
-.btn:is(:hover, :focus)::before { transform: translateX(0); }
+.btn:is(:hover, :focus)::before {opacity: 0.8; transform: translateX(0); }
 
 .img-holder {
   aspect-ratio: var(--width) / var(--height);

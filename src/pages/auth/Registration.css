@@ -106,13 +106,16 @@ position: relative;
     width: 100%;
     height: 100%;
 }
+.submit-btn:hover{
+    opacity: 0.8;
+}
 @media screen and (max-width:900px) {
     .signup-entry > .apply-container{
         width:90%;
        
     } 
     label{
-        font-size: 20px;
+        font-size: 14px;
     }
     .select-btn{
         flex-direction: column;

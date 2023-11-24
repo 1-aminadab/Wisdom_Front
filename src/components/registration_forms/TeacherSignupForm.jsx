@@ -456,7 +456,7 @@ const TeacherRegistrationForm = ({ userType }) => {
         >
           
          {isAlert && <CheckAlerts severity={alertComponent.alertType} title={alertComponent.title} message={alertComponent.message}/>}
-            <button type="submit" style={checkValidation() === false ? {backgroundColor:"gray", cursor:"none"} : {}}>Register {userRole === "parent"? "Parent"  :"Teacher"  } </button>
+            <button className="submit-btn" type="submit" style={checkValidation() === false ? {backgroundColor:"gray", cursor:"none"} : {}}>Register {userRole === "parent"? "Parent"  :"Teacher"  } </button>
           <div>
             <h2 style={{fontSize:'14px'}}>
               Already have an Account? <span>Login</span>{" "}

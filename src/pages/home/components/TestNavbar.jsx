@@ -45,6 +45,7 @@ const navItems = [
 function DrawerAppBar(props) {
   const navigate = useNavigate();
   const { isAuthenticated, user } = useAuth();
+ 
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -179,7 +180,7 @@ function DrawerAppBar(props) {
           </Box>
 
           <div className="header-actions">
-            <SearchInput />
+            <SearchInput  sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}/>
             {isAuthenticated ? (
               <div
                 style={{ display: "flex", alignItems: "center", gap: "25px" }}

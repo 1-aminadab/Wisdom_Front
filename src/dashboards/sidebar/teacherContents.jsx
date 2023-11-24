@@ -13,13 +13,12 @@ export const teacher = [
     icon:<LiaSchoolSolid  />,
     list:[
         { title:"Classes", link:"calsses"},
-        { title:"classes", link:"classes" },
-        { title:"students", link:"students" },
-        { title:"reports", link:"reports" },
-        { title:"attendance", link:"attendance" },
-        { title:"schedule", link:"schedule" },
-        { title:"assignments", link:"assignments" },
-        { title:"grade", link:"grade" },
+        { title:"Students", link:"students" },
+        { title:"Reports", link:"reports" },
+        { title:"Attendance", link:"attendance" },
+        { title:"Schedule", link:"schedule" },
+        { title:"Assignments", link:"assignments" },
+        { title:"Grade", link:"grade" },
     ]
 },
 { 
@@ -27,7 +26,7 @@ export const teacher = [
     link:"/teacher/resources",
     icon:<GrResources  />,
     list:[
-        {title:"resources", link:"resources"}
+        {title:"Resources", link:"resources"}
     ]
 },
 { 
