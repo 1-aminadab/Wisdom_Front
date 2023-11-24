@@ -41,7 +41,7 @@ function Hero() {
             >
               <img src={heroBanner2} width="240" height="370" alt="hero banner" className="img-cover" />
             </div>
-            <img src={heroShape1} width="380" height="190" alt="" className="shape hero-shape-1" />
+             
             <img src={heroShape2} width="622" height="551" alt="" className="shape hero-shape-2" />
           </figure>
         </div>

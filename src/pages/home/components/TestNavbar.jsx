@@ -18,7 +18,9 @@ import Button from "@mui/material/Button";
 import MessageNotification from "../../../components/notification/MessageNotification";
 import GeneralNotification from "../../../components/notification/GeneralNotification";
 import SearchInput from "../../../components/input/SearchInput";
+import CloseIcon from '@mui/icons-material/Close';
 //
+import SearchIcon from '@mui/icons-material/Search';
 import Logo from "../../../assets/images/wisdom3.png";
 //
 import { useAuth } from "../../../contexts/AuthContext";
@@ -60,7 +62,7 @@ function DrawerAppBar(props) {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
+  const [openInput, setOpenInput]= React.useState(false)
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
@@ -118,8 +120,16 @@ function DrawerAppBar(props) {
           color: "black",
         }}
       >
-        <div className="blur-nav"></div>
+        <div style={{display:`${openInput ? "flex": "none"}`}} className="media-input">
+          <input placeholder="Search..." type="text" />
+          
+          <CloseIcon onClick={()=> setOpenInput(false)} fontSize="large" sx={{fontSize:"25px",fontWeight:"700", color:"#444", cursor:"pointer"}}/>
+        </div>
+        
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box sx={{display:"flex", alignItems:"center",gap:"10px"}}>
+          
+         
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -159,6 +169,7 @@ function DrawerAppBar(props) {
               <h1 style={{fontFamily:"cursive", fontSize:'20px', fontWeight:"600"}}>Wisdom</h1></Typography>
             </div>
           </Typography>
+          </Box>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <Tabs
               value={value}
@@ -180,7 +191,12 @@ function DrawerAppBar(props) {
           </Box>
 
           <div className="header-actions">
-            <SearchInput  sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}/>
+            <Box  sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
+               <SearchInput />
+            </Box>
+            <Box onClick={()=> setOpenInput(true)}  sx={{ display: { xs: 'block', lg:"none" }, border:"2px solid #22f7",padding:"2px", borderRadius:"5px",cursor:"pointer", }}>
+               <SearchIcon fontSize="large" sx={{color:"#444", fontWeight:"700"}}/>
+            </Box>
             {isAuthenticated ? (
               <div
                 style={{ display: "flex", alignItems: "center", gap: "25px" }}

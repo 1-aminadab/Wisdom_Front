@@ -109,6 +109,27 @@ position: relative;
 .submit-btn:hover{
     opacity: 0.8;
 }
+.media-input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: inherit;
+    background-color: white;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px;
+}
+.media-input input{
+    border: 2px solid var(--kappel);
+    padding: 7px;
+    border-radius: 10px;
+    width: 80%;
+    font-size: 18px;
+    box-shadow: 0 0 5px rgb(175, 174, 174);
+}
 @media screen and (max-width:900px) {
     .signup-entry > .apply-container{
         width:90%;

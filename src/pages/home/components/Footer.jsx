@@ -24,19 +24,19 @@ function Footer() {
           <div className="wrapper">
             <span className="span">Add:</span>
 
-            <address className="address">70-80 Upper St Norwich NR2</address>
+            <address className="address">Addis Ababa, Ethiopia</address>
           </div>
 
           <div className="wrapper">
             <span className="span">Call:</span>
 
-            <a href="tel:+011234567890" className="footer-link">+01 123 4567 890</a>
+            <a href="tel:+011234567890" className="footer-link">+251946450835/+251910736293</a>
           </div>
 
           <div className="wrapper">
             <span className="span">Email:</span>
 
-            <a href="mailto:info@eduweb.com" className="footer-link">info@eduweb.com</a>
+            <a href="connectwisdom4@gmail.com" className="footer-link">connectwisdom4@gmail.com</a>
           </div>
 
         </div>
