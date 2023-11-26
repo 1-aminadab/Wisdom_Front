@@ -17,13 +17,13 @@ function Hero() {
         
         style={{ backgroundImage: `url(${heroBgImage})` }}
       >
-        <div className="container" >
+        <div className="container" style={{}} >
           <div className="hero-content">
-            <h1 className="h1 section-title " >
+            <h1 style={{fontSize:"40px"}} className="h1 section-title " >
            
              Discover Your <span className="span">Potential</span> through Customized Tutoring.
             </h1>
-            <p className="hero-text">
+            <p style={{fontSize:"14px"}} className="hero-text">
             Tailored Support for Academic Excellence and Confidence Across All Subjects. Elevate Your Learning Experience Now!
             </p>
             <a href="/signup" className="btn has-before">
