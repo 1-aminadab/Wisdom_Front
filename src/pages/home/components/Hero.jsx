@@ -19,7 +19,7 @@ function Hero() {
       >
         <div className="container" style={{}} >
           <div className="hero-content">
-            <h1 style={{fontSize:"40px"}} className="h1 section-title " >
+            <h1 style={{fontSize:"60px"}} className="h1 section-title " >
            
              Discover Your <span className="span">Potential</span> through Customized Tutoring.
             </h1>
