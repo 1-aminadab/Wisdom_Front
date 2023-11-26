@@ -20,13 +20,13 @@ import Dns from "@mui/icons-material/Dns";
 import Public from "@mui/icons-material/Public";
 //Icons
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import Logo from "../../assets/images/wisdom1.png";
 import SidebarOptions from "./SidebarOptions";
 import { teacher } from "./teacherContents";
 import { parent } from "./parentContents";
 import { student } from "./StudentContents";
 import {useNavigate} from "react-router-dom"
-
+// context
+import { useAuth } from "../../contexts/AuthContext";
 
 const FireNav = styled(List)({
   "& .MuiListItemButton-root": {
@@ -41,10 +41,11 @@ const FireNav = styled(List)({
     fontSize: 20,
   },
 });
-import { useAuth } from "../../contexts/AuthContext";
+
 
 export default function Sidebar() {
   const { isAuthenticated, user } = useAuth();
+  console.log("dashboard")
   console.log(isAuthenticated,user);
   const navigate = useNavigate()
   const [sideList, setSideList] = React.useState([]);

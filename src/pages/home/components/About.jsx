@@ -27,10 +27,9 @@ function About() {
           <div className="about-content">
             <p className="section-subtitle">About Us</p>
             <h2 className="h2 section-title">
-              Over 10 Years in <span className="span">Distant learning</span> for Skill Development
-            </h2>
+            "Over a Decade of  <span className="span">Excellence</span>  Elevating Skills.</h2>
             <p className="section-text">
-              Lorem ipsum dolor sit amet consectur adipiscing elit sed eiusmod ex tempor incididunt labore dolore magna aliquaenim ad minim.
+            Empowering Growth Over a Decade: Elevate Your Skills with Tailored Tutoring Excellence in Remote Learning.
             </p>
             <ul className="about-list">
               <li className="about-item">

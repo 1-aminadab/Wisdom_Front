@@ -95,6 +95,7 @@
 /* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
+  background:linear-gradient(135deg, rgb(155, 155, 255), rgb(0, 87, 128));
 }
 
 /* Handle */

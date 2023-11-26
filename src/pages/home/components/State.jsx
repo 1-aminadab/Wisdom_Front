@@ -12,9 +12,9 @@ function State() {
               <div className="stats-card" 
             //   style="--color: 170, 75%, 41%"
               >
-                <h3 className="card-title">29.3k</h3>
+                <h3 className="card-title">4k+</h3>
 
-                <p className="card-text">Student Enrolled</p>
+                <p className="card-text">Spots Ready</p>
               </div>
             </li>
 
@@ -22,9 +22,9 @@ function State() {
               <div className="stats-card"
             //    style="--color: 351, 83%, 61%"
                >
-                <h3 className="card-title">32.4K</h3>
+                <h3 className="card-title">1K+</h3>
 
-                <p className="card-text">Class Completed</p>
+                <p className="card-text">Tutors Ready</p>
               </div>
             </li>
 

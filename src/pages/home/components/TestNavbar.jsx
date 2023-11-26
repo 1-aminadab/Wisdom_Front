@@ -88,8 +88,8 @@ function DrawerAppBar(props) {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+        {navItems.map((item,index) => (
+          <ListItem key={index} disablePadding>
             <ListItemButton href={item.link} sx={{ textAlign: "center", fontFamily:"fantasy",fontStyle:"italic",fontWeight:"500"}}>
               <ListItemText primary={item.title} />
             </ListItemButton>
@@ -178,11 +178,11 @@ function DrawerAppBar(props) {
               aria-label="disabled tabs example"
               
             >
-              {navItems.map((item) => (
+              {navItems.map((item, index) => (
                 <LinkTab
                 href={item.link}
                   sx={{ color: "#555", fontSize: "13px"}}
-                  key={item}
+                  key={index}
                   label={item.title}
 
                 />

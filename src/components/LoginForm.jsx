@@ -45,6 +45,7 @@ console.log(formData);
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+       
       }}
     >
       <div
@@ -127,7 +128,7 @@ console.log(formData);
         >
           {" "}
           Don't have an account?{" "}
-          <span style={{ color: "blue", fontWeight: "500", fontSize: "14px" }}>
+          <span onClick={()=> navigate("/signup")} style={{ color: "blue", fontWeight: "500", fontSize: "14px" }}>
             Register
           </span>
         </h5>

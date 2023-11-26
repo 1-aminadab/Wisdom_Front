@@ -20,13 +20,14 @@ function Hero() {
         <div className="container" >
           <div className="hero-content">
             <h1 className="h1 section-title " >
-              The Best Program to <span className="span">Enroll</span> for Exchange
+           
+             Discover Your <span className="span">Potential</span> through Customized Tutoring.
             </h1>
             <p className="hero-text">
-              Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit.
+            Tailored Support for Academic Excellence and Confidence Across All Subjects. Elevate Your Learning Experience Now!
             </p>
-            <a href="#" className="btn has-before">
-              <span className="span">Find courses</span>
+            <a href="/signup" className="btn has-before">
+              <span className="span">Enroll Now</span>
               <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
             </a>
           </div>

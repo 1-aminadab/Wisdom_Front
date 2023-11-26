@@ -11,6 +11,7 @@ import Dashboard from './dashboards/Dashbaord'
 import Registration from './pages/auth/Registration';
 import AuthForm from './pages/auth/Login';
 import SignupIntry from './pages/auth/SignupIntry';
+import Contact from './pages/contact/Contact';
 
 const Router = () => {
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/login" element={<LoginForm />} />
+
 
       {/* PrivateRoutes
       <PrivateRoute path="/parent_signup" roles={['parent']} element={ParentRegistrationForm} />
@@ -48,9 +49,10 @@ const Router = () => {
       <Route path="/not-authorized" element={<Unauthorized />} />
       <Route path="/chat-interface" element={<ChatInterface/>} />
       <Route path="*" element={<NotFound />} />
-      <Route path="/auth" element={<AuthForm/>}/>
+      <Route path="/login" element={<AuthForm/>}/>
       <Route path="/signup" element={<Registration/>}/>
       <Route path="/dashboard" element={<Dashboard/>}/>
+      <Route path="/contact" element={<Contact/>}/>
     </Routes>
   );
 };

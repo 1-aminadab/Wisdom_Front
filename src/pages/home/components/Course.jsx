@@ -41,7 +41,7 @@ function Course() {
                     </div>
                     <p className="rating-text">(5.0/7 Rating)</p>
                   </div>
-                  <data className="price" value="29">$29.00</data>
+                  {/* <data className="price" value="29">$29.00</data> */}
                   <ul className="card-meta-list">
                     <li className="card-meta-item">
                       <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
