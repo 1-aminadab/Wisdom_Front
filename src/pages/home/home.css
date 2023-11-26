@@ -133,7 +133,7 @@ body {
 }
 
 .section-title {
-  font-size: 90px;
+  font-size: 70px;
   --color: var(--kappel);
   text-align: center;
 
@@ -206,8 +206,9 @@ body {
 }
 
 .section-text {
-  font-size: var(--fs-5);
+  font-size: var(--fs-4);
   text-align: center;
+  color: gray;
   margin-block: 15px 25px;
 }
 
