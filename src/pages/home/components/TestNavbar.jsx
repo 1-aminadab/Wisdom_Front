@@ -261,7 +261,7 @@ function DrawerAppBar(props) {
               <div
                 style={{ display: "flex", alignItems: "center", gap: "10px" }}
               >
-                <span onClick={() => navigate("/login")} style={{fontSize:"16px",border:"1px solid blue",padding:"10px",borderRadius:"5px", color:"white",fontStyle:"italic", cursor:"pointer"}}>Login</span>
+                <span onClick={() => navigate("/login")} style={{fontSize:"16px",border:"1px solid white",padding:"5px 10px",borderRadius:"50px", color:"gray",fontStyle:"italic", cursor:"pointer"}}>Login</span>
                 <a href="#" className="btn has-before">
                   <span style={{fontSize:"15px"}}  className="span" onClick={() => navigate("/signup")}>
                     Sign Up

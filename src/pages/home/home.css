@@ -40,7 +40,9 @@ data,
 input,
 button,
 ion-icon { display: block; }
-
+span:hover{
+  color:var(--kappel)
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -748,7 +750,6 @@ body {
 .blog-card:is(:hover, :focus-within) .card-banner .img-cover { transform: scale(1.1); }
 
 .blog-card:is(:hover, :focus-within) .card-banner::after { opacity: 1; }
-
 .blog-card .card-content {
   position: relative;
   margin-inline: 15px;
