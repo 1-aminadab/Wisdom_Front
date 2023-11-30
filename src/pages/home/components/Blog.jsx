@@ -1,8 +1,8 @@
 import React from "react";
 import Banner from "../assets/images/blog-bg.svg";
 import Blog1 from "../assets/images/blog-1.jpg";
-import Blog2 from "../assets/images/blog-2.jpg";
-import Blog3 from "../assets/images/blog-3.jpg";
+import Blog2 from "../assets/images/blog-4.jpg";
+import Blog3 from "../assets/images/blog-5.jpg";
 import Shape from "../assets/images/blog-shape.png";
 function Blog() {
   const news = [
