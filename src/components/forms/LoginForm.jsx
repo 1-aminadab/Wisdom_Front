@@ -5,32 +5,48 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Logo from "../../assets/images/wisdom3.png";
 const LoginForm = () => {
-  const [error, setError] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     phoneNumber: "",
     password: "",
   });
-
+  const [alertComponent, setAlertComponent] = useState({
+    alertType: "",
+    title: "",
+    message: "",
+  });
+  const [isAlert, setIsAlert] = useState(false);
+  const alertFunction = (alertType, title, message) => {
+    setIsAlert(true);
+    return setAlertComponent({
+      alertType: alertType,
+      title: title,
+      message: message,
+    });
+  };
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
-
-
+      setLoading(true);
       const response = await login(formData);
-
       localStorage.setItem("Access_Token", response.token);
-      
-navigate('/')
+      setLoading(false);
+      setErrorMessage(null);
+
+      navigate("/");
       // Store JWT token in context or localStorage
       // Redirect to dashboard or show success message
     } catch (error) {
+      setLoading(false);
       console.error("Login error:", error);
+      setErrorMessage("can't signin");
       // Handle login error
     }
   };
@@ -45,7 +61,6 @@ navigate('/')
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-       
       }}
     >
       <div
@@ -68,7 +83,6 @@ navigate('/')
         </h1>
       </div>
       <Box
-    
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -114,10 +128,25 @@ navigate('/')
             borderRadius: "20px",
             backgroundColor: "blue",
             color: "white",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "5px",
           }}
         >
-          Sign in
+          Sign in{" "}
+          <div
+            style={{ display: `${loading ? "flex" : "none"}` }}
+            className="login-loading"
+          >
+            <span>.</span>
+            <span>.</span>
+            <span>.</span>
+          </div>
         </button>
+        <h6 style={{ display:`${!errorMessage ? 'none' :"flex" }`, color: "red", fontSize: "14px", fontWeight: "600" }}>
+          can't signin
+        </h6>
         <h5
           style={{
             fontSize: "13px",
@@ -128,7 +157,10 @@ navigate('/')
         >
           {" "}
           Don't have an account?{" "}
-          <span onClick={()=> navigate("/signup")} style={{ color: "blue", fontWeight: "500", fontSize: "14px" }}>
+          <span
+            onClick={() => navigate("/signup")}
+            style={{ color: "blue", fontWeight: "500", fontSize: "14px" }}
+          >
             Register
           </span>
         </h5>

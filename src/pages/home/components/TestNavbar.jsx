@@ -244,7 +244,7 @@ function DrawerAppBar(props) {
                     <MenuItem onClick={handleCloseUserMenu}>
                       <Typography
                         textAlign="center"
-                        onClick={() => navigate("/dashboard")}
+                        onClick={() => navigate("/dashboard/main")}
                       >
                         Dashbaord
                       </Typography>
