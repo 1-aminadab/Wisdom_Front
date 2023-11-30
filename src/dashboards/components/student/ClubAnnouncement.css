@@ -1,0 +1,31 @@
+.club-announcement-container {
+    display: flex;
+  }
+  
+  .club-list {
+    width: 200px;
+    padding: 16px;
+  }
+  
+  .club-list h2 {
+    margin-bottom: 8px;
+  }
+  
+  .announcement-list {
+    flex-grow: 1;
+    padding: 16px;
+  }
+  
+  .announcement-list h2 {
+    margin-bottom: 16px;
+  }
+  
+  .announcement-cards {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .selected {
+    background-color: #e6f7ff;
+  }
+  

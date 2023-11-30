@@ -24,6 +24,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import Logo from "../../../assets/images/wisdom3.png";
 //
 import { useAuth } from "../../../contexts/AuthContext";
+import { useSelector } from "react-redux";
+
 import { useNavigate } from "react-router-dom";
 import ProtectedComponent from "../../../components/ProtectedComponent";
 
@@ -41,13 +43,14 @@ const navItems = [
   { link: "#service", title: "Services" },
   { link: "#blog", title: "News" },
   { link: "#about", title: "About" },
-  { link: "#contact", title: "Contact" },
+  { link: "/contact", title: "Contact" },
 ];
 
 function DrawerAppBar(props) {
   const navigate = useNavigate();
-  const { isAuthenticated, user } = useAuth();
- 
+  const { isAuthenticated, user } = useAuth()
+  const getUser = useSelector((store)=> store.user);
+
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);

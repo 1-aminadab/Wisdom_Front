@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./Registration.css";
-import TeacherRegistrationForm from '../../components/registration_forms/TeacherSignupForm';
+import SignupForm from '../../components/forms/SignupForm';
 import SignupIntry from './SignupIntry'
 function Registration() {
    let [userType, setUserType ] = useState(null)
@@ -9,7 +9,7 @@ function Registration() {
         setUserType(type)
    }
     if (userType ===  null) return <SignupIntry getType={setType}/>
-    return <TeacherRegistrationForm userType = {userType} />
+    return <SignupForm userType = {userType} />
    // if(userType === "parent") return <ParentRegistrationForm />
 }
 

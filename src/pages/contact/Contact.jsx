@@ -22,8 +22,9 @@ function Contact() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        
         background:
-          "linear-gradient(90deg, rgb(155, 155, 255), rgb(0, 87, 128))",
+          "white",
       }}
     >
       
@@ -31,12 +32,15 @@ function Contact() {
         className="container"
         style={{
           width: "70%",
-          display: "flex",
-          height: "60%",
+         display:"flex",
+          padding:"40px",
+          alignItems:"center",
+          gap:"20px",
+          height: "fit-content",
           position: "relative",
           padding: "10px",
           background: "white",
-          boxShadow: "0 0 5px #ddd",
+          boxShadow: "0 0 10px 5px #bbb",
         }}
       >
         <div
@@ -45,15 +49,17 @@ function Contact() {
             backgroundColor: "rgb(0, 87, 128)",
             width: "40%",
             height: "90%",
-            position: "absolute",
-            top: "5%",
-            left: "-10%",
+            // position: "absolute",
+            // top: "5%",
+            // left: "-10%",
+            marginLeft:"-40px",
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
             gap: "20px",
             justifyContent: "space-between",
             padding: "10px",
+            boxShadow: "0 0 10px 5px #bbb",
           }}
         >
           <h1

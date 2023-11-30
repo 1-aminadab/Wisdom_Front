@@ -1,6 +1,9 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import Course1 from '../assets/images/course-1.jpg'
+import { notifyState } from '../../../feature/cardSlice';
 function Course() {
+  const dispatch = useDispatch()
   return (
     <div>
       <section className="section course" id="courses" aria-label="course">
@@ -8,7 +11,7 @@ function Course() {
           <p className="section-subtitle">Popular Courses</p>
           <h2 className="h2 section-title">Pick A Course To Get Started</h2>
           <ul className="grid-list">
-            <li>
+            <li style={{cursor:"pointer"}} onClick={()=>dispatch(notifyState(true))}>
               <div className="course-card">
                 <figure className="card-banner img-holder" >
                   <img

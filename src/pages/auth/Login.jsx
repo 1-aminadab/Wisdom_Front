@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FaGooglePlusG, FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import "./Registration.css"
-import LoginLogo from "../../assets/images/loginlogo.jpg"
-import LoginForm from '../../components/LoginForm';
+import LoginLogo from "../../assets/images/loginlogo2.jpg"
+import LoginForm from '../../components/forms/LoginForm';
 const AuthForm = () => {
   const [isSignUp, setIsSignUp] = useState(true);
 
@@ -23,7 +23,7 @@ const AuthForm = () => {
         <div className="desc-img" style={{width:"100%",height:"100%",padding:"20px", display:"flex", alignItems:"center", justifyContent:"center", backgroundImage:`url(${LoginLogo})`}}>
           <div className='desc-img-blur'></div>
           <h1 >Welcome Back.</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi qui nisi non quis ea voluptatum blanditiis quod ducimus eum amet!</p>
+          <p>Unlocking Knowledge, Empowering Minds: Welcome to Your Learning Journey.</p>
         </div>
        
       </div>

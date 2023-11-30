@@ -1,5 +1,5 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
+
 import { styled, ThemeProvider, createTheme } from "@mui/material/styles";
 import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
@@ -18,12 +18,13 @@ import People from "@mui/icons-material/People";
 import PermMedia from "@mui/icons-material/PermMedia";
 import Dns from "@mui/icons-material/Dns";
 import Public from "@mui/icons-material/Public";
+import Box from "@mui/material/Box";
 //Icons
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import SidebarOptions from "./SidebarOptions";
-import { teacher } from "./teacherContents";
-import { parent } from "./parentContents";
-import { student } from "./StudentContents";
+import { teacher } from "./contents/teacherContents";
+import { parent } from "./contents/parentContents";
+import { student } from "./contents/StudentContents";
 import {useNavigate} from "react-router-dom"
 // context
 import { useAuth } from "../../contexts/AuthContext";
@@ -44,12 +45,14 @@ const FireNav = styled(List)({
 
 
 export default function Sidebar() {
-  const { isAuthenticated, user } = useAuth();
-  console.log("dashboard")
-  console.log(isAuthenticated,user);
+  const [user, setUser] = React.useState({
+    userType:"student"
+  })
+
+
   const navigate = useNavigate()
   const [sideList, setSideList] = React.useState([]);
-
+  
   React.useEffect(() => {
     if (user.userType === "parent") {
       return setSideList(parent);
@@ -66,7 +69,7 @@ export default function Sidebar() {
   });
 
   return (
-    <Box sx={{ display: "flex", height: "100vh" }}>
+    <Box sx={{ display: "flex", height: "100vh", }}>
       <ThemeProvider
         sx={{
           height: "100%",

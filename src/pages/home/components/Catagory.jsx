@@ -45,9 +45,9 @@ function Category() {
           <p  className="section-text">Consectetur adipiscing elit sed do eiusmod tempor.</p>
           <ul className="grid-list">
             {
-              categorys.map((category)=>{
+              categorys.map((category, index)=>{
                 return(
-                  <li>
+                  <li key={index}>
                   <div className="category-card" >
                     <div className="card-icon">
                       <img src={category.icon} width="40" height="40" loading="lazy" alt="Online Degree Programs" className="img" />

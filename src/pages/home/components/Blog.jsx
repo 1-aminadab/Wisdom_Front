@@ -43,9 +43,9 @@ function Blog() {
 
           <ul className="grid-list">
             {
-              news.map((news)=>{
+              news.map((news, index)=>{
                 return  (
-                  <li>
+                  <li key={index}>
                   <div className="blog-card">
                     <figure className="card-banner img-holder has-after">
                       <img

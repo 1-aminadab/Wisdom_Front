@@ -8,7 +8,7 @@ const ProtectedComponent = () => {
     const handleLogout = async () => {
         try {
            
-            console.log('Logout successful');
+           
             localStorage.removeItem('Access_Token')
             dispatch({ type: 'LOGOUT'}); // remove 
             navigate('/login') // navigate
