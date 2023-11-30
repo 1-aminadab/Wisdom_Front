@@ -8,7 +8,7 @@ function Course() {
     <div>
       <section className="section course" id="courses" aria-label="course">
         <div className="container">
-          <p className="section-subtitle">Popular Courses</p>
+         
           <h2 className="h2 section-title">Pick A Course To Get Started</h2>
           <ul className="grid-list">
             <li style={{cursor:"pointer"}} onClick={()=>dispatch(notifyState(true))}>

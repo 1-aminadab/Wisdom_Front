@@ -37,7 +37,7 @@ function Blog() {
         style={{ backgroundImage: `url(${Banner})` }}
       >
         <div className="container">
-          <p className="section-subtitle">Latest Articles</p>
+         
 
           <h2 className="h2 section-title">Get News With Wisdom</h2>
 

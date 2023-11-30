@@ -28,19 +28,19 @@ export default function HideAppBar(props) {
       <Blog />
       <Footer />
       <div
+      className="card-wraper"
         style={{
           position: "fixed",
           top: "0",
           left: "0",
           width: "100vw",
           height: "100vh",
-          backgroundColor: "#0003",
           display:`${notify ?"flex":"none"}`,
           alignItems:"center",
           justifyContent:"center",
           zIndex:"10000"
         }}
-        className="differentCards"
+       
       >
         <Notify state={notify}/>
       </div>

@@ -25,7 +25,7 @@ function About() {
             {/* <img src={Shape3} width="722" height="528" loading="lazy" alt="" className="shape about-shape-3" /> */}
           </figure>
           <div className="about-content">
-            <p className="section-subtitle">About Us</p>
+          
             <h2 className="h2 section-title">
             "Embark on a  <span className="span">Decade</span> of Educational Excellence.</h2>
             <p className="section-text">

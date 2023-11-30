@@ -38,11 +38,11 @@ function Category() {
     <div>
       <section className="section category" aria-label="category">
         <div className="container">
-          <p className="section-subtitle">Categories</p>
+        
           <h2 className="h2 section-title">
             Online <span className="span">Classes </span> For Remote Learning.
           </h2>
-          <p  className="section-text">Consectetur adipiscing elit sed do eiusmod tempor.</p>
+          <p  className="section-text">Empower Your Education from Anywhere with Our Online Classes for Remote Learning.</p>
           <ul className="grid-list">
             {
               categorys.map((category, index)=>{
