@@ -2,6 +2,8 @@ import React from 'react'
 import Logo from '../assets/images/logo-light.svg'
 import FooterBG from "../assets/images/footer-bg.png"
 function Footer() {
+  const currentDate = new Date().getFullYear()
+
   return (
     <div> <footer className="footer" 
     
@@ -166,7 +168,7 @@ function Footer() {
       <div className="container">
 
         <p className="copyright">
-          Copyright 2022 All Rights Reserved by <a href="#" className="copyright-link">codewithsadee</a>
+          Copyright {currentDate} All Rights Reserved by <a href="#" className="copyright-link">codewithsadee</a>
         </p>
 
       </div>
