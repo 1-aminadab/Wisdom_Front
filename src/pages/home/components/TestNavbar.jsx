@@ -92,9 +92,9 @@ function DrawerAppBar(props) {
       <Divider />
       <List>
         {navItems.map((item,index) => (
-          <ListItem key={index} disablePadding>
-            <ListItemButton href={item.link} sx={{ textAlign: "center", fontFamily:"fantasy",fontStyle:"italic",fontWeight:"500"}}>
-              <ListItemText primary={item.title} />
+          <ListItem key={index} disablePadding sx={{fontSize:"20px"}}>
+            <ListItemButton fontSize="large" href={item.link} sx={{ textAlign: "center",fontSize:"18px", fontFamily:"fantasy",fontStyle:"italic",fontWeight:"700"}}>
+              <ListItemText fontSize="large"  primary={item.title} />
             </ListItemButton>
           </ListItem>
         ))}

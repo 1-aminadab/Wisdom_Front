@@ -176,6 +176,7 @@ const TeacherRegistrationForm = ({ userType }) => {
       // Send the data to the backend
       const response = await axios.post(`${BASE_URL}/auth/register`, userData);
       alertFunction("success", response.data.title,response.data.message)
+      navigate('/login')
       // Handle the response as needed
 
 
