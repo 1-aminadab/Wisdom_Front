@@ -754,10 +754,9 @@ body {
   position: relative;
   margin-inline: 15px;
   -webkit-backdrop-filter: blur(15px);
-  backdrop-filter: blur(5px);
-  background-color:rgba(255, 255, 255, 0.24);
-  border-left: 1px solid rgba(255, 255, 255, 0.527);
-  border-top: 1px solid rgba(255, 255, 255, 0.575);
+  backdrop-filter: blur(1px);
+  background:linear-gradient(0deg,white,white,transparent);
+ 
   padding: 20px;
   border-radius: var(--radius-10);
   box-shadow: var(--shadow-3);
@@ -789,7 +788,7 @@ body {
   font-size: var(--fs-5);
 }
 
-.blog-card .card-subtitle { text-transform: uppercase; }
+.blog-card .card-subtitle { text-transform: uppercase; color:var(--white) }
 
 .blog-card .card-title {
   margin-block: 10px 15px;
@@ -844,7 +843,12 @@ body {
   display: flex;
   gap: 5px;
 }
-
+.footer-brand .logo{
+  color:var(--kappel);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 30px;
+  padding: 5px;
+}
 .footer-brand .wrapper .span { font-weight: var(--fw-500); }
 
 .footer-link { transition: var(--transition-1); }

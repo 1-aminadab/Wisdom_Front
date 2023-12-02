@@ -16,12 +16,10 @@ function Footer() {
         <div className="footer-brand">
 
           <a href="#" className="logo">
-            <img src={Logo} width="162" height="50" alt="EduWeb logo"/>
+           Wisdom
           </a>
 
-          <p className="footer-brand-text">
-            Lorem ipsum dolor amet consecto adi pisicing elit sed eiusm tempor incidid unt labore dolore.
-          </p>
+         
 
           <div className="wrapper">
             <span className="span">Add:</span>
